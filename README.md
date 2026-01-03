@@ -108,11 +108,11 @@ GET /todos/stats – View progress stats
 
 ## File structure
 todo-api/
-├── app.py          # API routes and logic
-├── models.py       # Database structure for todos
-├── requirements.txt# Python packages needed
-├── .gitignore      # Files/folders Git should ignore
-└── README.md       # This guide
+- app.py          # API routes and logic
+- models.py       # Database structure for todos
+- requirements.txt# Python packages needed
+- .gitignore      # Files/folders Git should ignore
+- README.md       # This guide
 
 ## Testing
 I used Postman to test everything:
