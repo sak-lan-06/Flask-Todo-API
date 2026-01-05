@@ -7,7 +7,7 @@ app = Flask(__name__)
 import os
 
 # use PostgreSQL in production, SQLite in development
-database_url = os.environ.get('DATABASE_URL', 'sqlite://todos.db')
+database_url = os.environ.get('DATABASE_URL', 'sqlite:///todos.db')
 
 #Railway gives us a postgre:// URL, but SQLAlchemy needs postgresql://
 if database_url.startswith('postgre://'):
