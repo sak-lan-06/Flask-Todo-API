@@ -10,7 +10,7 @@ import os
 database_url = os.environ.get('DATABASE_URL', 'sqlite://todos.db')
 
 #Railway gives us a postgre:// URL, but SQLAlchemy needs postgresql://
-if database_url.startwith('postgre://'):
+if database_url.startswith('postgre://'):
     database_url = database_url.replace('postgres://', 'postgresql://', 1)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = database_url
