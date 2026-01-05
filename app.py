@@ -3,7 +3,17 @@ from flask_cors import CORS
 from models import db, Todo
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todos.db'
+
+import os
+
+# use PostgreSQL in production, SQLite in development
+database_url = os.environ.get('DATABASE_URL', 'sqlite://todos.db')
+
+#Railway gives us a postgre:// URL, but SQLAlchemy needs postgresql://
+if database_url.startwith('postgre://'):
+    database_url = database_url.replace('postgres://', 'postgresql://', 1)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize extensions
